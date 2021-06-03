@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="mt-3">
+    <div id="alert-box"></div>
+    <div id="img-box" class="text-center"></div>
+    <form id="p-form" autocomplete="off">
+        {% csrf_token %}
+        {{form|crispy}}
+        <div id="btn-box" class="not-visible mt-1 mb-3">
+            <button type="submit" class="btn btn-primary" data-filter="NO_FILTER">No filter</button>
+            <button type="submit" class="btn btn-primary" data-filter="COLORIZED">Colorized</button>
+            <button type="submit" class="btn btn-primary" data-filter="GRAYSCALE">Grayscale</button>
+            <button type="submit" class="btn btn-primary" data-filter="BLURRED">Blurred</button>
+            <button type="submit" class="btn btn-primary" data-filter="BINARY">Binary</button>
+            <button type="submit" class="btn btn-primary" data-filter="INVERT">Invert</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}
+
+    ('NO_FILTER', 'no filter'),
+    ('COLORIZED', 'colorized'),
+    ('GRAYSCALE', 'grayscale'),
+    ('BLURRED', 'blurred'),
+    ('BINARY', 'binary'),
+    ('INVERT', 'invert'),
+
+
